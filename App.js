@@ -4,16 +4,17 @@ import {View, Text, StyleSheet, TextInput, TouchableOpacity, Button} from 'react
 import {Formik} from "formik";
 import * as Yup from 'yup';
 import AsyncStorage from "@react-native-async-storage/async-storage";
-
-
+import MainStore from "./src/Store/MainStore";
+import {observer} from "mobx-react";
+@observer
 export default class App extends React.Component{
     async componentDidMount() {
-        //veri yükleme komutu
-        //AsyncStorage.setItem('application_name',"DİLANSOZ");
-        //veriyi alma 1.YOL
-        /*AsyncStorage.getItem("application_name").then((res)=>{
-            console.log(res)
-        })*/
+        /* //veri yükleme komutu
+       //AsyncStorage.setItem('application_name',"DİLANSOZ");
+       //veriyi alma 1.YOL
+      AsyncStorage.getItem("application_name").then((res)=>{
+           console.log(res)
+       })*/
 
         /*const application_name = await AsyncStorage.getItem("application_name");
         console.log(application_name);*/
@@ -26,13 +27,24 @@ export default class App extends React.Component{
             console.log(JSON.parse(res))
         });*/
 
-        //Depolama işlemi string olmak zorunda
-    }
+        //Depolama işlemi string olmak zorunda*/
 
+        //MOBX
+        //-> alert(MainStore.getName())
+
+
+    }
 
     render(){
         return(
-              <Route/>
+            //MOBX EXAMPLE(SetName)
+            <View>
+                <Text>{MainStore.name}</Text>
+                <TouchableOpacity onPress={()=>MainStore.setName("X")}>
+                    <Text>DEGİŞTİR</Text>
+                </TouchableOpacity>
+            </View>
+              //<Route/>
         )
     }
 }
