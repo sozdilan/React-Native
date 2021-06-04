@@ -37,14 +37,14 @@ export default class App extends React.Component{
 
     render(){
         return(
-            //MOBX EXAMPLE(SetName)
+            /*//MOBX EXAMPLE(SetName)
             <View>
                 <Text>{MainStore.name}</Text>
                 <TouchableOpacity onPress={()=>MainStore.setName("X")}>
                     <Text>DEGİŞTİR</Text>
                 </TouchableOpacity>
-            </View>
-              //<Route/>
+            </View>*/
+              <Route/>
         )
     }
 }
